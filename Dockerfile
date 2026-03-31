@@ -15,5 +15,6 @@ COPY . .
 # Cloud Run expects port 8080
 EXPOSE 8080
 
-# Start the ADK API server serving the weather_agent package
-CMD ["adk", "api_server", "--port", "8080", "weather_agent"]
+# adk api_server AGENTS_DIR expects the parent directory containing agent folders.
+# --host 0.0.0.0 is required for Cloud Run (default is 127.0.0.1).
+CMD ["adk", "api_server", "--host", "0.0.0.0", "--port", "8080", "."]
