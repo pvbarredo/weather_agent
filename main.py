@@ -12,7 +12,7 @@ PORT = int(os.environ.get("PORT", "8080"))
 
 app = get_fast_api_app(
     agents_dir=os.path.dirname(os.path.abspath(__file__)),
-    web=False,
+    web=True,
     host="0.0.0.0",
     port=PORT,
 )
