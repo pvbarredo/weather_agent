@@ -15,6 +15,5 @@ COPY . .
 # Cloud Run expects port 8080
 EXPOSE 8080
 
-# Use the Python entrypoint for reliable Cloud Run startup
-# (reads PORT env var, binds to 0.0.0.0)
-CMD ["python", "main.py"]
+# Start ADK with web UI, bind to 0.0.0.0 for Cloud Run
+CMD ["adk", "web", "--host", "0.0.0.0", "--port", "8080", "."]
